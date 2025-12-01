@@ -1,14 +1,18 @@
-import { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Main from "./pages/Main";
+import Counter from "./pages/Counter";
+import Header from "./layouts/Header";
 
-function App() {
-  const [count, setCount] = useState(1);
-  
+const App = () => {  
   return (
-    <div className="App">
-      {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
-    </div>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+        <Route path='/counter' element={<Counter/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
