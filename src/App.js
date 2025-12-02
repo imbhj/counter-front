@@ -11,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Main/>}/>
         <Route path='/counter' element={<Counter/>}/>
+        <Route path='*' element={<>404</>}/>
       </Routes>
     </BrowserRouter>
   );
