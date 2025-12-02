@@ -11,7 +11,6 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Main/>}/>
         <Route path='/counter' element={<Counter/>}/>
-        <Route path='*' element={<>404! 페이지가 없는데요?</>}/>
       </Routes>
     </BrowserRouter>
   );

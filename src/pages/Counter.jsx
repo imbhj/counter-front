@@ -1,32 +1,12 @@
-import { useEffect, useState } from 'react';
-import axios from "axios";
+import { useState } from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const getCount = async() => {
-      const { data } =  await axios.get(`${process.env.REACT_APP_BACK_API}/`);
-      setCount(data.count);
-    }
-    getCount();
-  }, [])
-
-  const fetchIncrement = async() => {
-    const { data } =  await axios.post(`${process.env.REACT_APP_BACK_API}/increment`);
-      setCount(data.count);
-  }
-
-  const fetchDecrement = async() => {
-    const { data } =  await axios.post(`${process.env.REACT_APP_BACK_API}/decrement`);
-      setCount(data.count);
-  }
+  const [count, setCount] = useState(1);
   
   return (
     <div className="Counter">
       {count}
-      <button onClick={fetchIncrement}>+</button>
-      <button onClick={fetchDecrement}>-</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
     </div>
   );
 }
